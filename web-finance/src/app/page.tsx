@@ -66,7 +66,7 @@ export default function WebFinance() {
               Mým cílem je vaše finanční jistota a spokojený domov.
             </p>
             <div className="text-[#b8905b] font-serif text-2xl italic signature-font">
-              Hynek Novák
+              Hynek Novák.
             </div>
           </div>
         </div>
