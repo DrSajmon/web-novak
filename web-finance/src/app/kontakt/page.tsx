@@ -1,24 +1,23 @@
 import React from 'react';
 
-export const metadata = {
-  title: "Kontakt | Hynek Novák",
-};
+export const metadata = { title: "Kontakt | Hynek Novák" };
 
 export default function KontaktPage() {
   return (
-    <main style={{ padding: '60px 20px', maxWidth: '800px', margin: '0 auto', fontFamily: 'sans-serif' }}>
-      <h1 style={{ fontSize: '2.5rem', color: '#111827', marginBottom: '20px' }}>Kontaktujte mě</h1>
-      <p style={{ fontSize: '1.125rem', color: '#4B5563', marginBottom: '40px' }}>
-        Máte dotaz k investicím nebo chcete zrevidovat své stávající finanční nastavení? Ozvěte se.
-      </p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', fontWeight: '500' }}>
-        <div>
-          <h3 style={{ color: '#9CA3AF', textTransform: 'uppercase', fontSize: '0.875rem', marginBottom: '8px' }}>E-mail</h3>
-          <p style={{ fontSize: '1.25rem', color: '#111827' }}>info@hyneknovak.cz</p>
-        </div>
-        <div>
-          <h3 style={{ color: '#9CA3AF', textTransform: 'uppercase', fontSize: '0.875rem', marginBottom: '8px' }}>Telefon</h3>
-          <p style={{ fontSize: '1.25rem', color: '#111827' }}>+420 123 456 789</p>
+    <main style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px' }}>
+      <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+        <h1 style={{ fontSize: '2.25rem', color: '#0f172a', marginBottom: '15px' }}>Napište mi nebo zavolejte</h1>
+        <p style={{ color: '#64748b', fontSize: '1.1rem', marginBottom: '40px' }}>Rád s vámi proberu vaše finanční cíle u dobré kávy nebo na online schůzce.</p>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '30px' }}>
+          <div style={{ padding: '20px', backgroundColor: '#f8fafc', borderRadius: '8px' }}>
+            <div style={{ color: '#64748b', fontSize: '0.85rem', textTransform: 'uppercase', fontWeight: 'bold', marginBottom: '5px' }}>E-mailová adresa</div>
+            <a href="mailto:info@hyneknovak.cz" style={{ fontSize: '1.25rem', color: '#0284c7', textDecoration: 'none', fontWeight: '500' }}>info@hyneknovak.cz</a>
+          </div>
+          <div style={{ padding: '20px', backgroundColor: '#f8fafc', borderRadius: '8px' }}>
+            <div style={{ color: '#64748b', fontSize: '0.85rem', textTransform: 'uppercase', fontWeight: 'bold', marginBottom: '5px' }}>Telefonní kontakt</div>
+            <a href="tel:+420123456789" style={{ fontSize: '1.25rem', color: '#0f172a', textDecoration: 'none', fontWeight: '500' }}>+420 123 456 789</a>
+          </div>
         </div>
       </div>
     </main>
