@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header style={{ backgroundColor: '#0f172a', color: '#fff', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Link href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', textDecoration: 'none', letterSpacing: '-0.5px' }}>
-              Hynek Novák <span style={{ color: '#38bdf8', fontSize: '0.875rem', fontWeight: 'normal', blockDirection: 'ltr' }}>| Finance</span>
+              Hynek Novák <span style={{ color: '#38bdf8', fontSize: '0.875rem', fontWeight: 'normal', direction: 'ltr' }}>| Finance</span>
             </Link>
             <nav style={{ display: 'flex', gap: '25px' }}>
               <Link href="/" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500', transition: 'color 0.2s' }}>Domů</Link>
