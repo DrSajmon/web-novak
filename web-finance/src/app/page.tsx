@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function WebFinance() {
   return (
     <div className="min-h-screen bg-[#faf9f7] font-sans text-slate-800">
@@ -15,11 +16,11 @@ export default function WebFinance() {
         </div>
         
         <div className="hidden md:flex gap-8 text-sm font-semibold tracking-wider text-slate-700">
-          <a href="#" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">HOME</a>
-          <a href="#" className="hover:text-[#b8905b] transition-colors">SLUŽBY</a>
-          <a href="#" className="hover:text-[#b8905b] transition-colors">O MNĚ</a>
-          <a href="#" className="hover:text-[#b8905b] transition-colors">REFERENCE</a>
-          <a href="#" className="hover:text-[#b8905b] transition-colors">KONTAKT</a>
+          <Link href="/" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">HOME</Link>
+          <Link href="/sluzby">SLUŽBY</Link>
+          <Link href="/o-mne">O MNĚ</Link>
+          <Link href="/reference">REFERENCE</Link>
+          <Link href="/kontakt">KONTAKT</Link>
         </div>
         
         <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
