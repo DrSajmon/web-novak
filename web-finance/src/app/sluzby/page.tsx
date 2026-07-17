@@ -21,8 +21,8 @@ export default function SluzbyPage(){
         </div>
         
         <div className="hidden md:flex gap-8 text-sm font-semibold tracking-wider text-slate-700">
-          <Link href="/" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">HOME</Link>
-          <Link href="/sluzby">SLUŽBY</Link>
+          <Link href="/" >HOME</Link>
+          <Link href="/sluzby" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">SLUŽBY</Link>
           <Link href="/o-mne">O MNĚ</Link>
           <Link href="/reference">REFERENCE</Link>
           <Link href="/kontakt">KONTAKT</Link>
