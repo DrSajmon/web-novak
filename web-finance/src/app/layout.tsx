@@ -11,29 +11,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="cs">
       <body style={{ margin: 0, padding: 0, fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: '#f8fafc', color: '#334155', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         
-        {/* SPOLEČNÁ HLAVIČKA (NAVBAR) */}
-        <header style={{ backgroundColor: '#0f172a', color: '#fff', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+        {/* ZLATO-MODRÁ HLAVIČKA */}
+        <header style={{ backgroundColor: '#0b192c', color: '#fff', position: 'sticky', top: 0, zIndex: 1000, borderBottom: '3px solid #d4af37', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Link href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', textDecoration: 'none', letterSpacing: '-0.5px' }}>
-              Hynek Novák <span style={{ color: '#38bdf8', fontSize: '0.875rem', fontWeight: 'normal', direction: 'ltr' }}>| Finance</span>
+              Hynek Novák <span style={{ color: '#d4af37', fontSize: '0.875rem', fontWeight: 'normal' }}>| Finance</span>
             </Link>
-            <nav style={{ display: 'flex', gap: '25px' }}>
-              <Link href="/" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500', transition: 'color 0.2s' }}>Domů</Link>
+            <nav style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
+              <Link href="/" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500' }}>Domů</Link>
               <Link href="/sluzby" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500' }}>Služby</Link>
               <Link href="/reference" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500' }}>Reference</Link>
               <Link href="/o-mne" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '500' }}>O mně</Link>
-              <Link href="/kontakt" style={{ backgroundColor: '#0284c7', color: '#fff', padding: '8px 16px', borderRadius: '6px', textDecoration: 'none', fontWeight: '500' }}>Kontakt</Link>
+              <Link href="/kontakt" style={{ backgroundColor: '#d4af37', color: '#0b192c', padding: '8px 16px', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', border: '1px solid #fff' }}>Kontakt</Link>
             </nav>
           </div>
         </header>
 
-        {/* DYNAMICKÝ VNITŘEK STRÁNEK */}
+        {/* VNITŘEK STRÁNEK */}
         <div style={{ flex: 1 }}>
           {children}
         </div>
 
-        {/* SPOLEČNÝ SPODEK (FOOTER) */}
-        <footer style={{ backgroundColor: '#0f172a', color: '#94a3b8', padding: '40px 20px', marginTop: '60px', borderTop: '1px solid #1e293b', fontSize: '0.875rem' }}>
+        {/* PATIČKA */}
+        <footer style={{ backgroundColor: '#0b192c', color: '#94a3b8', padding: '40px 20px', marginTop: '60px', borderTop: '1px solid #1e293b', fontSize: '0.875rem' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
               <div>
