@@ -45,9 +45,9 @@ export default function WebFinance() {
             <button className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
               Nezávazná konzultace <span>→</span>
             </button>
-            <button className="border border-slate-300 bg-white px-8 py-4 text-xs font-bold text-slate-700 uppercase tracking-wider hover:bg-slate-50 transition-colors">
+            <Link href="/sluzby" className="border border-slate-300 bg-white px-8 py-4 text-xs font-bold text-slate-700 uppercase tracking-wider hover:bg-slate-50 transition-colors">
               Více o službách
-            </button>
+            </Link>
           </div>
         </div>
 
