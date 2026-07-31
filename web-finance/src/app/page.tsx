@@ -56,18 +56,17 @@ export default function WebFinance() {
           {/* Zde stačí do složky 'public' nahrát fotku s názvem 'portret.png' */}
           <div className="relative w-full max-w-lg h-[500px] bg-slate-200 object-cover object-bottom rounded-t-full shadow-inner flex items-end justify-center overflow-hidden">
              {/* Odkomentuj tento img tag, jakmile budeš mít fotku ve složce public */}
-             <img src="/portret.jpg" alt="Hynek Novák" className="w-full h-full object-cover object-bottom" />
-             {!false && <span className="text-slate-400 pb-10">Zde se zobrazí /portret.png</span>}
+             <img src="/portret.jpg" alt="Hynek Novák" className="w-full h-full object-cover object-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }} />
           </div>
 
           {/* Modrý box s citátem */}
-          <div className="absolute -bottom-10 -right-4 md:-right-10 bg-[#132238] text-white p-10 max-w-xs shadow-2xl">
+          <div className="absolute -bottom-10 -right-4 md:-right-10 bg-[#132238] text-white p-10 max-w-xs shadow-2xl" style={{ marginTop: 'auto' }}>
             <div className="text-[#b8905b] text-6xl font-serif leading-3 mb-4">“</div>
             <p className="font-serif text-xl leading-relaxed mb-6">
-              Mým cílem je vaše finanční jistota a spokojený domov.
+              „V byznysu i v týmu si zakládám na férovosti, rozumu a dlouhodobém partnerství.“
             </p>
             <div className="text-[#b8905b] font-serif text-2xl italic signature-font">
-              Hynek Novák.
+               - Hynek Novák
             </div>
           </div>
         </div>
