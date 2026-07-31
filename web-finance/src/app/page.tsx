@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 export default function WebFinance() {
   return (
     <div className="min-h-screen bg-[#faf9f7] font-sans text-slate-800">
@@ -42,30 +43,33 @@ export default function WebFinance() {
             Pomáhám klientům efektivně spravovat finance, chránit hodnoty a bezpečně investovat do nemovitostí.
           </p>
           <div className="flex gap-4">
-            <Link href="/kontakt"><button  className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
-              Nezávazná konzultace <span>→</span>
-            </button></Link>
-            <Link href="/sluzby" className="border border-slate-300 bg-white px-8 py-4 text-xs font-bold text-slate-700 uppercase tracking-wider hover:bg-slate-50 transition-colors">
+            <Link href="/kontakt">
+              <button className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
+                Nezávazná konzultace <span>→</span>
+              </button>
+            </Link>
+            <Link href="/sluzby" className="border border-slate-300 bg-white px-8 py-4 text-xs font-bold text-slate-700 uppercase tracking-wider hover:bg-slate-50 transition-colors flex items-center justify-center">
               Více o službách
             </Link>
           </div>
         </div>
 
-        {/* Pravá část s fotkou a citátem */}
-        <div className="md:w-1/2 relative mt-16 md:mt-0 flex justify-end">
-          {/* Zde stačí do složky 'public' nahrát fotku s názvem 'portret.png' */}
+        {/* Pravá část s fotkou a citátem (OPRAVENO: Složeno pod sebe a vycentrováno) */}
+        <div className="md:w-1/2 relative mt-16 md:mt-0 flex flex-col items-center">
+          
+          {/* Zde stačí do složky 'public' nahrát fotku s názvem 'portret.jpg' */}
           <div className="relative w-full max-w-lg h-[500px] bg-slate-200 object-cover object-bottom rounded-t-full shadow-inner flex items-end justify-center overflow-hidden">
-             {/* Odkomentuj tento img tag, jakmile budeš mít fotku ve složce public */}
              <img src="/portret.jpg" alt="Hynek Novák" className="w-full h-full object-cover object-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }} />
           </div>
 
-          {/* Modrý box s citátem */}
+          {/* Modrý box s citátem pevně pod fotkou */}
           <div style={{ 
-              marginTop: '50px', 
+              marginTop: '40px', /* Mezera mezi fotkou a citátem */
               backgroundColor: '#132238', 
               color: '#ffffff', 
               padding: '35px 40px', 
               maxWidth: '480px', 
+              width: '100%',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
               textAlign: 'left',
               borderRadius: '4px' 
