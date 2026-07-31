@@ -60,12 +60,28 @@ export default function WebFinance() {
           </div>
 
           {/* Modrý box s citátem */}
-          <div className="absolute -bottom-10 -right-4 md:-right-10 bg-[#132238] text-white p-10 max-w-xs shadow-2xl" style={{ marginTop: '50px' }}>
-            <div className="text-[#b8905b] text-6xl font-serif leading-3 mb-4">“</div>
-            <p className="font-serif text-xl leading-relaxed mb-6">
-              „V byznysu i v týmu si zakládám na férovosti, rozumu a dlouhodobém partnerství.“
+          <div style={{ 
+              marginTop: '50px', 
+              backgroundColor: '#132238', 
+              color: '#ffffff', 
+              padding: '35px 40px', 
+              maxWidth: '480px', 
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+              textAlign: 'left',
+              borderRadius: '4px' 
+              }}>
+            {/* Zlaté uvozovky */}
+            <div style={{ color: '#b8905b', fontSize: '5rem', fontFamily: 'Georgia, serif', lineHeight: '0.1', paddingTop: '20px', marginBottom: '25px' }}>
+               “
+            </div>
+  
+            {/* Text citátu */}
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.2rem', lineHeight: '1.7', marginBottom: '25px' }}>
+                „V byznysu i v týmu si zakládám na férovosti, rozumu a dlouhodobém partnerství.“
             </p>
-            <div className="text-[#b8905b] font-serif text-2xl italic signature-font">
+  
+            {/* Jméno - Podpis */}
+            <div style={{ color: '#b8905b', fontFamily: 'Georgia, serif', fontSize: '1.4rem', fontStyle: 'italic' }}>
                - Hynek Novák
             </div>
           </div>
