@@ -42,9 +42,9 @@ export default function WebFinance() {
             Pomáhám klientům efektivně spravovat finance, chránit hodnoty a bezpečně investovat do nemovitostí.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
+            <Link href="/kontakt"><button  className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
               Nezávazná konzultace <span>→</span>
-            </button>
+            </button></Link>
             <Link href="/sluzby" className="border border-slate-300 bg-white px-8 py-4 text-xs font-bold text-slate-700 uppercase tracking-wider hover:bg-slate-50 transition-colors">
               Více o službách
             </Link>
@@ -60,7 +60,7 @@ export default function WebFinance() {
           </div>
 
           {/* Modrý box s citátem */}
-          <div className="absolute -bottom-10 -right-4 md:-right-10 bg-[#132238] text-white p-10 max-w-xs shadow-2xl" style={{ marginTop: 'auto' }}>
+          <div className="absolute -bottom-10 -right-4 md:-right-10 bg-[#132238] text-white p-10 max-w-xs shadow-2xl" style={{ marginTop: '50px' }}>
             <div className="text-[#b8905b] text-6xl font-serif leading-3 mb-4">“</div>
             <p className="font-serif text-xl leading-relaxed mb-6">
               „V byznysu i v týmu si zakládám na férovosti, rozumu a dlouhodobém partnerství.“
