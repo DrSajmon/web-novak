@@ -24,9 +24,11 @@ export default function WebFinance() {
           <Link href="/kontakt">KONTAKT</Link>
         </div>
         
-        <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
-          Nezávazná konzultace
-        </button>
+        <Link href="/poptavka">
+          <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
+            Nezávazná konzultace
+          </button>
+        </Link>
       </nav>
 
       {/* 2. HERO SEKCE (Hlavička s fotkou) */}
@@ -43,7 +45,7 @@ export default function WebFinance() {
             Pomáhám klientům efektivně spravovat finance, chránit hodnoty a bezpečně investovat do nemovitostí.
           </p>
           <div className="flex gap-4">
-            <Link href="/kontakt">
+            <Link href="/poptavka">
               <button className="bg-[#b8905b] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors flex items-center gap-2">
                 Nezávazná konzultace <span>→</span>
               </button>
