@@ -28,9 +28,11 @@ export default function SluzbyPage(){
           <Link href="/kontakt">KONTAKT</Link>
         </div>
         
-        <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
-          Nezávazná konzultace
-        </button>
+        <Link href="/poptavka">
+          <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
+            Nezávazná konzultace
+          </button>
+        </Link>
       </nav>
 
       <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', borderTop: '4px solid #d4af37' }}>

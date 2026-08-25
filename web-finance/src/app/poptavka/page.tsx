@@ -78,7 +78,7 @@ export default function KontaktPage() {
         {/* POKUD JE ODESLÁNO, ZOBRAZÍ SE DĚKOVNÁ HLÁŠKA */}
         {odeslano ? (
           <div style={{ backgroundColor: '#f0fdf4', border: '1px solid #bbf7d0', color: '#166534', padding: '25px', borderRadius: '8px', textAlign: 'center' }}>
-            <h3 style={{ margin: '0 0 10px 0', fontSize: '1.3rem' }}>Děkujeme za vaši poptávku!</h3>
+            <h3 style={{ margin: '0 0 10px 0', fontSize: '1.3rem' }}>Děkujeme za váš zájem!</h3>
             <p style={{ margin: 0 }}>Formulář byl úspěšně odeslán. Co nejdříve se vám ozveme zpět.</p>
           </div>
         ) : (
@@ -136,7 +136,7 @@ export default function KontaktPage() {
 
               <div>
                 <label style={{ display: 'block', fontWeight: '600', marginBottom: '8px', color: '#0b192c', fontSize: '0.9rem' }}>
-                  Typ poptávky
+                  Jakou chcete konzultaci?
                 </label>
                 <select
                   name="sluzba"
@@ -144,10 +144,10 @@ export default function KontaktPage() {
                   onChange={handleChange}
                   style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '1rem', backgroundColor: '#fff', boxSizing: 'border-box' }}
                 >
-                  <option value="Obecný dotaz">Obecný dotaz</option>
-                  <option value="Rodinné domy na klíč">Rodinné domy na klíč</option>
-                  <option value="Hrubé stavby & Základy">Hrubé stavby & Základy</option>
-                  <option value="Rekonstrukce & Zateplení">Rekonstrukce & Zateplení</option>
+                  <option value="Obecný dotaz">Osobně</option>
+                  <option value="Rodinné domy na klíč">Telefonicky</option>
+                  <option value="Hrubé stavby & Základy">Google meet</option>
+                  <option value="Rekonstrukce & Zateplení">Zoom</option>
                 </select>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function KontaktPage() {
             {/* ŘÁDEK 3: Textová zpráva */}
             <div>
               <label style={{ display: 'block', fontWeight: '600', marginBottom: '8px', color: '#0b192c', fontSize: '0.9rem' }}>
-                Vaše zpráva / Detail stavby *
+                Vaše zpráva / Detail Vaší situace 
               </label>
               <textarea
                 name="zprava"
@@ -163,7 +163,7 @@ export default function KontaktPage() {
                 rows={5}
                 value={formData.zprava}
                 onChange={handleChange}
-                placeholder="Popište stručně váš projekt, lokalitu nebo dotaz..."
+                placeholder="Popište stručně vaši situaci, případ nebo dotaz..."
                 style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '1rem', fontFamily: 'inherit', boxSizing: 'border-box' }}
               />
             </div>
