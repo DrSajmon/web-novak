@@ -7,12 +7,12 @@ export default function WebFinance() {
       {/* 1. NAVIGACE */}
       <nav className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto bg-transparent relative z-10">
         <div className="flex items-center gap-4">
-          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4">
+          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4"><Link href="/" >
             HN
-          </div>
+          </Link></div>
           <div>
-            <div className="text-xl font-semibold tracking-wide text-slate-900">HYNEK NOVÁK</div>
-            <div className="text-[10px] tracking-widest text-slate-500 uppercase">Finanční a realitní specialista</div>
+            <div className="text-xl font-semibold tracking-wide text-slate-900"><Link href="/" >HYNEK NOVÁK</Link></div>
+            <div className="text-[10px] tracking-widest text-slate-500 uppercase"><Link href="/" >Finanční a realitní specialista</Link></div>
           </div>
         </div>
         

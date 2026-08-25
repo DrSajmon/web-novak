@@ -9,12 +9,12 @@ export default function KontaktPage() {
       {/* 1. NAVIGACE */}
       <nav className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto bg-transparent relative z-10">
         <div className="flex items-center gap-4">
-          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4">
+          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4"><Link href="/" >
             HN
-          </div>
+          </Link></div>
           <div>
-            <div className="text-xl font-semibold tracking-wide text-slate-900">HYNEK NOVÁK</div>
-            <div className="text-[10px] tracking-widest text-slate-500 uppercase">Finanční a realitní specialista</div>
+            <div className="text-xl font-semibold tracking-wide text-slate-900"><Link href="/" >HYNEK NOVÁK</Link></div>
+            <div className="text-[10px] tracking-widest text-slate-500 uppercase"><Link href="/" >Finanční a realitní specialista</Link></div>
           </div>
         </div>
         
@@ -26,9 +26,11 @@ export default function KontaktPage() {
           <Link href="/kontakt" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">KONTAKT</Link>
         </div>
         
-        <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
-          Nezávazná konzultace
-        </button>
+        <Link href="/poptavka">
+          <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
+            Nezávazná konzultace
+          </button>
+        </Link>
       </nav>
     <main style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px' }}>
       <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', borderTop: '4px solid #d4af37' }}>
