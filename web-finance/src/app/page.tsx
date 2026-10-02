@@ -20,6 +20,7 @@ export default function WebFinance() {
           <Link href="/" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">HOME</Link>
           {/**/}<Link href="/sluzby">SLUŽBY</Link>
           {/*<Link href="/o-mne">O MNĚ</Link>*/}
+          {/*<Link href="/reference">REFERENCE</Link>*/}
           <Link href="/kontakt">KONTAKT</Link>
         </div>
         
