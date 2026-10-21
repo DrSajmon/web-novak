@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================================================
+   BARVY WEBU
+   Každá barva tady vytvoří Tailwind třídy, např.
+   --color-navy  →  bg-navy, text-navy, border-navy
+   Když změníte hodnotu tady, změní se na celém webu.
+   ========================================================= */
+@theme {
+  --color-navy: #132238;        /* hlavní tmavě modrá */
+  --color-navy-light: #1b2f4a;  /* světlejší modrá (box kalkulačky) */
+  --color-navy-line: #2c4466;   /* čáry na modrém pozadí */
+  --color-navy-dark: #0e1a2b;   /* patička */
+  --color-gold: #b8905b;        /* zlatá – tlačítka na modrém, ozdoby */
+  --color-gold-dark: #8a6a3f;   /* tmavší zlatá – text a tlačítka na světlém (lepší čitelnost) */
+  --color-gold-light: #d4b483;  /* světlá zlatá – text na modrém */
+  --color-cream: #faf9f7;       /* pozadí stránky */
+  --color-sand: #f1ebe2;        /* béžové panely */
+  --color-line: #ebe6df;        /* jemné linky a rámečky */
 }
 
+/* Písma – nastavená v layout.tsx přes next/font, tady jen napojená na Tailwind
+   font-sans  = Inter (běžný text)
+   font-serif = Playfair Display (nadpisy) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth; /* plynulé posouvání na kotvy (#formular apod.) */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: #1e293b;
+}
+
+/* Playfair má "starodávné" číslice různé výšky – pro čísla a částky chceme rovné */
+.font-serif {
+  font-variant-numeric: lining-nums;
+}
+
+/* =========================================================
+   ANIMACE
+   ========================================================= */
+
+/* 1) Vyjetí po načtení stránky (úvodní části stránek).
+      Použití: className="fade-up" + style={{ animationDelay: '200ms' }} */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+.fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* 2) Vyjetí při posouvání stránky – řídí komponenta <Reveal>.
+      Prvek je schovaný (.reveal) a když se objeví v okně,
+      Reveal mu přidá třídu .is-visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 3) Jemné zvednutí karet po najetí myší. Použití: className="card-hover" */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -20px rgba(19, 34, 56, 0.35);
+  border-color: var(--color-gold-light);
+}
+
+/* Lidé, kteří mají v systému vypnuté animace, je neuvidí */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .card-hover, .card-hover:hover { transition: none; transform: none; }
+}
+
+/* Jezdce v kalkulačce ve zlaté barvě */
+input[type="range"] {
+  accent-color: var(--color-gold);
 }

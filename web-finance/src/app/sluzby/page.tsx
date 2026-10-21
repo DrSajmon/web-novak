@@ -1,113 +1,138 @@
-import React from 'react';
-import Link from 'next/link';
-export const metadata = { title: "Služby | Hynek Novák" };
+// =========================================================
+// STRÁNKA SLUŽBY ( /sluzby )
+//   1. Úvod + rychlé odkazy na jednotlivé služby (#plan, #investice…)
+//   2. Služby na střídačku: sudé = ikona vlevo, liché = ikona vpravo
+//      (texty se mění v data/sluzby.ts, tady jen vzhled)
+//   3. Jak spolupráce probíhá – 4 kroky
+//   4. Výzva ke konzultaci
+// =========================================================
 
-export default function SluzbyPage(){
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ButtonLink } from '@/components/Button'
+import { CtaBanner } from '@/components/CtaBanner'
+import { Icon } from '@/components/Icons'
+import { Reveal } from '@/components/Reveal'
+import { SectionHeader } from '@/components/SectionHeader'
+import { sluzby } from '@/data/sluzby'
 
- 
+export const metadata: Metadata = {
+  title: 'Služby',
+  description: 'Finanční plánování, pojištění, investice a ETF portfolia, realitní služby a správa majetku.',
+}
+
+// Kroky spolupráce – text upravíte přímo tady
+const kroky = [
+  { nazev: 'Úvodní schůzka', text: 'Nezávazně probereme vaše cíle, současnou situaci a co od spolupráce čekáte.' },
+  { nazev: 'Analýza', text: 'Projdu vaše smlouvy, investice a cash-flow. Odhalím skryté poplatky i mezery v ochraně.' },
+  { nazev: 'Návrh řešení', text: 'Představím konkrétní plán s čísly a vysvětlím každý krok, abyste přesně věděli, co vlastníte.' },
+  { nazev: 'Dlouhodobá péče', text: 'Pravidelné revize a úpravy podle toho, jak se mění váš život a trhy.' },
+]
+
+export default function SluzbyPage() {
   return (
-    <div className="min-h-screen bg-[#faf9f7] font-sans text-slate-800">
-      
-      {/* 1. NAVIGACE */}
-      <nav className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto bg-transparent relative z-10">
-        <div className="flex items-center gap-4">
-          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4"><Link href="/" >
-            HN
-          </Link></div>
-          <div>
-            <div className="text-xl font-semibold tracking-wide text-slate-900"><Link href="/" >HYNEK NOVÁK</Link></div>
-            <div className="text-[10px] tracking-widest text-slate-500 uppercase"><Link href="/" >Finanční a realitní specialista</Link></div>
-          </div>
+    <>
+      {/* ---------- 1. ÚVOD ---------- */}
+      <section className="mx-auto flex max-w-6xl flex-col gap-6 px-5 pb-[clamp(40px,6vw,64px)] pt-[clamp(48px,8vw,88px)]">
+        <div className="fade-up">
+          <SectionHeader
+            as="h1"
+            eyebrow="Služby"
+            title="Vše pro váš majetek na jednom místě"
+            text="Přináším vědecký a matematicky podložený přístup ke správě rodinného majetku. Vyberte oblast, která vás zajímá."
+          />
         </div>
-        
-        <div className="hidden md:flex gap-8 text-sm font-semibold tracking-wider text-slate-700">
-          <Link href="/" >HOME</Link>
-          <Link href="/sluzby" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">SLUŽBY</Link>
-          {/*<Link href="/o-mne">O MNĚ</Link>*/}
-          {/*<Link href="/reference">REFERENCE</Link>*/}
-          <Link href="/kontakt">KONTAKT</Link>
-        </div>
-        
-        <Link href="/poptavka">
-          <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
-            Nezávazná konzultace
-          </button>
-        </Link>
-      </nav>
-
-      <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', borderTop: '4px solid #d4af37' }}>
-        <h1 style={{ fontSize: '2.25rem', color: '#0b192c', margin: '0 0 10px 0', fontWeight: '700' }}>Moje specializace</h1>
-        <p style={{ color: '#64748b', fontSize: '1.125rem', marginBottom: '40px' }}>Přináším vědecký a matematicky podložený přístup ke správě vašeho rodinného majetku.</p>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
-          <div style={{ padding: '25px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0', borderLeft: '4px solid #0b192c' }}>
-            <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>📈</div>
-            <h3 style={{ fontSize: '1.25rem', color: '#0b192c', margin: '0 0 10px 0', fontWeight: '600' }}>Investice & ETF Portfolia</h3>
-            <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#475569' }}>Sestavování nízkonákladových pasivních portfolií. Detailní analýzy překryvů titulů, eliminace skrytých poplatků a vysvětlení rozdílů mezi fyzickými a swapovými ETF.</p>
-          </div>
-          <div style={{ padding: '25px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0', borderLeft: '4px solid #d4af37' }}>
-            <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>💎</div>
-            <h3 style={{ fontSize: '1.25rem', color: '#0b192c', margin: '0 0 10px 0', fontWeight: '600' }}>Finanční plánování (Milionový plán)</h3>
-            <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#475569' }}>Komplexní audit finančních toků. Modelování scénářů pro dosažení finanční nezávislosti a renty na základě modelů světových institucí (např. Nobelova nadace).</p>
-          </div>
-          <div style={{ padding: '25px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0', borderLeft: '4px solid #0b192c' }}>
-            <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>🛡️</div>
-            <h3 style={{ fontSize: '1.25rem', color: '#0b192c', margin: '0 0 10px 0', fontWeight: '600' }}>Ochrana majetku & Pojištění</h3>
-            <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#475569' }}>Zajištění stabilního příjmu a ochrana vybudovaných hodnot. Expertní poradenství v oblasti pojištění odpovědnosti, nemovitostí i specializovaného vybavení (např. drahých jízdních kol).</p>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. SEKCE: PROČ SPOLUPRACOVAT SE MNOU */}
-      <section className="bg-[#132238] text-white py-20 border-t border-[#b8905b]">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-[#b8905b] font-bold text-sm tracking-widest uppercase mb-12 text-center">Proč spolupracovat se mnou?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Benefit 1 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Individuální přístup</h3>
-                <p className="text-slate-400 text-sm">Každý klient je jedinečný. Řešení vždy přizpůsobuji vašim potřebám.</p>
-              </div>
-            </div>
-            {/* Benefit 2 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Zkušenosti a odbornost</h3>
-                <p className="text-slate-400 text-sm">Dlouholetá praxe ve financích, investicích a realitách.</p>
-              </div>
-            </div>
-            {/* Benefit 3 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Důvěra a transparentnost</h3>
-                <p className="text-slate-400 text-sm">Jednám férově, otevřeně a vždy ve vašem nejlepším zájmu.</p>
-              </div>
-            </div>
-            {/* Benefit 4 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Komplexní servis</h3>
-                <p className="text-slate-400 text-sm">Vše, co potřebujete, vyřešíte pohodlně na jednom místě.</p>
-              </div>
-            </div>
-          </div>
+        <div className="fade-up flex flex-wrap gap-2.5 pt-1.5" style={{ animationDelay: '200ms' }}>
+          {sluzby.map((s) => (
+            <Link
+              key={s.id}
+              href={`#${s.id}`}
+              className="rounded-full border border-slate-300 bg-white px-4.5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white"
+            >
+              {s.nazev}
+            </Link>
+          ))}
         </div>
       </section>
 
-    </div>
+      {/* ---------- 2. SLUŽBY NA STŘÍDAČKU ---------- */}
+      <div className="mx-auto flex max-w-6xl flex-col gap-[clamp(56px,8vw,96px)] px-5 pb-[clamp(64px,9vw,96px)]">
+        {sluzby.map((s, i) => {
+          const vpravo = i % 2 === 1 // každá druhá služba má ikonu vpravo
+          return (
+            <Reveal
+              key={s.id}
+              id={s.id}
+              className={`group flex scroll-mt-28 flex-col items-center gap-[clamp(32px,6vw,72px)] md:flex-row ${
+                vpravo ? 'md:flex-row-reverse' : ''
+              }`}
+            >
+              {/* Panel s ikonou – střídá modrou a béžovou */}
+              <div
+                className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded md:w-5/12 ${
+                  vpravo ? 'bg-sand' : 'bg-navy'
+                }`}
+              >
+                <span className={`absolute left-7 top-6 font-serif text-[22px] ${vpravo ? 'text-gold-dark' : 'text-gold-light'}`}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {/* ozdobný kruh v rohu */}
+                <span
+                  aria-hidden="true"
+                  className={`absolute -bottom-16 h-56 w-56 rounded-full border ${
+                    vpravo ? '-left-16 border-[#ddd2c2]' : '-right-16 border-navy-line'
+                  }`}
+                />
+                <Icon
+                  name={s.ikona}
+                  strokeWidth={0.9}
+                  className={`h-28 w-28 transition-transform duration-500 group-hover:scale-105 ${vpravo ? 'text-navy' : 'text-gold'}`}
+                />
+              </div>
+
+              {/* Text */}
+              <div className="flex w-full min-w-0 flex-col gap-4.5 md:w-7/12">
+                <h2 className="font-serif text-[clamp(28px,3.6vw,38px)] font-medium leading-tight text-navy">{s.nazev}</h2>
+                <p className="text-[17px] leading-relaxed text-slate-600">{s.popis}</p>
+                <ul className="flex flex-col gap-2.5">
+                  {s.body.map((bod) => (
+                    <li key={bod} className="flex gap-3 text-[15px] leading-normal">
+                      <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0 text-gold-dark" strokeWidth={2} />
+                      {bod}
+                    </li>
+                  ))}
+                </ul>
+                <ButtonLink href={`/kontakt?tema=${s.id}#formular`} className="mt-1.5 self-start">
+                  {s.tlacitko}
+                </ButtonLink>
+              </div>
+            </Reveal>
+          )
+        })}
+      </div>
+
+      {/* ---------- 3. JAK SPOLUPRÁCE PROBÍHÁ ---------- */}
+      <section className="border-t border-line bg-white px-5 py-[clamp(64px,9vw,96px)]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12">
+          <Reveal>
+            <SectionHeader eyebrow="Jak spolupráce probíhá" title="Čtyři kroky od první kávy k funkčnímu plánu" />
+          </Reveal>
+          <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {kroky.map((k, i) => (
+              <li key={k.nazev}>
+                <Reveal delay={i * 100} className="flex flex-col gap-3 border-t-2 border-navy pt-6">
+                  <span className="font-serif text-4xl text-gold-dark">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="text-lg font-semibold text-navy">{k.nazev}</h3>
+                  <p className="text-[15px] leading-relaxed text-slate-600">{k.text}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ---------- 4. VÝZVA ---------- */}
+      <CtaBanner title="Nevíte, kde začít?" text="Na první schůzce společně zjistíme, co má pro vás největší smysl." />
+    </>
   )
 }

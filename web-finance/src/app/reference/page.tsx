@@ -1,105 +1,56 @@
-import React from 'react';
-import Link from 'next/link';
-export const metadata = { title: "Reference | Hynek Novák" };
+// =========================================================
+// STRÁNKA REFERENCE ( /reference )
+// Reference se doplňují v data/reference.ts.
+// Dokud tam žádné nejsou, ukáže se krátká zpráva místo karet.
+// =========================================================
+
+import type { Metadata } from 'next'
+import { ButtonLink } from '@/components/Button'
+import { CtaBanner } from '@/components/CtaBanner'
+import { ReferenceList } from '@/components/ReferenceList'
+import { SectionHeader } from '@/components/SectionHeader'
+import { reference } from '@/data/reference'
+import { site } from '@/data/site'
+
+export const metadata: Metadata = {
+  title: 'Reference',
+  description: 'Zkušenosti klientů se spoluprací s Hynkem Novákem.',
+}
 
 export default function ReferencePage() {
   return (
-    <div className="min-h-screen bg-[#faf9f7] font-sans text-slate-800">
-      
-      {/* 1. NAVIGACE */}
-      <nav className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto bg-transparent relative z-10">
-        <div className="flex items-center gap-4">
-          <div className="text-3xl font-light text-[#b8905b] tracking-widest border-r border-slate-300 pr-4"><Link href="/" >
-            HN
-          </Link></div>
-          <div>
-            <div className="text-xl font-semibold tracking-wide text-slate-900"><Link href="/" >HYNEK NOVÁK</Link></div>
-            <div className="text-[10px] tracking-widest text-slate-500 uppercase"><Link href="/" >Finanční a realitní specialista</Link></div>
-          </div>
+    <>
+      <section className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 pb-10 pt-[clamp(48px,8vw,88px)] text-center">
+        <div className="fade-up">
+          <SectionHeader as="h1" eyebrow="Reference" title="Výsledky mé práce" text="Co říkají klienti, se kterými spolupracuji." center />
         </div>
-        
-        <div className="hidden md:flex gap-8 text-sm font-semibold tracking-wider text-slate-700">
-          <Link href="/" >HOME</Link>
-          <Link href="/sluzby">SLUŽBY</Link>
-          {/*<Link href="/o-mne">O MNĚ</Link>*/}
-          {/*<Link href="/reference" className="text-[#b8905b] border-b-2 border-[#b8905b] pb-1">REFERENCE</Link>*/}
-          <Link href="/kontakt">KONTAKT</Link>
-        </div>
-        
-        <Link href="/poptavka">
-          <button className="hidden md:block bg-[#b8905b] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#a07c4c] transition-colors">
-            Nezávazná konzultace
-          </button>
-        </Link>
-      </nav>
-    <main style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px' }}>
-      <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', borderTop: '4px solid #d4af37' }}>
-        <h1 style={{ fontSize: '2.25rem', color: '#0b192c', marginBottom: '30px', fontWeight: '700' }}>Výsledky mé práce</h1>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-          <div style={{ borderLeft: '4px solid #d4af37', paddingLeft: '20px' }}>
-            <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: '#334155', margin: '0 0 10px 0' }}>
-              "Analýza překryvů v našem stávajícím ETF portfoliu od pana Nováka nám ušetřila desetitisíce korun ročně na poplatcích. Konečně přesně víme, co vlastníme."
-            </p>
-            <span style={{ fontWeight: 'bold', color: '#64748b', fontSize: '0.9rem' }}>— Ing. Radek S., investor</span>
-          </div>
-          <div style={{ borderLeft: '4px solid #0b192c', paddingLeft: '20px' }}>
-            <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: '#334155', margin: '0 0 10px 0' }}>
-              "Díky komplexnímu finančnímu plánování jsme dokázali bezpečně alokovat volný milión korun tak, aby generoval stabilní výnos a byl krytý proti inflaci."
-            </p>
-            <span style={{ fontWeight: 'bold', color: '#64748b', fontSize: '0.9rem' }}>— MUDr. Lucie M., Brno</span>
-          </div>
-        </div>
-      </div>
-    </main>
-    <section className="bg-[#132238] text-white py-20 border-t border-[#b8905b]">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-[#b8905b] font-bold text-sm tracking-widest uppercase mb-12 text-center">Proč spolupracovat se mnou?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Benefit 1 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Individuální přístup</h3>
-                <p className="text-slate-400 text-sm">Každý klient je jedinečný. Řešení vždy přizpůsobuji vašim potřebám.</p>
-              </div>
+        <div className="fade-up flex flex-wrap justify-center gap-x-14 gap-y-6 pt-4" style={{ animationDelay: '250ms' }}>
+          {site.cisla.map((c) => (
+            <div key={c.popis} className="flex flex-col gap-1">
+              <span className="font-serif text-[40px] text-navy">{c.hodnota}</span>
+              <span className="text-[13px] text-slate-500">{c.popis}</span>
             </div>
-            {/* Benefit 2 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Zkušenosti a odbornost</h3>
-                <p className="text-slate-400 text-sm">Dlouholetá praxe ve financích, investicích a realitách.</p>
-              </div>
-            </div>
-            {/* Benefit 3 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Důvěra a transparentnost</h3>
-                <p className="text-slate-400 text-sm">Jednám férově, otevřeně a vždy ve vašem nejlepším zájmu.</p>
-              </div>
-            </div>
-            {/* Benefit 4 */}
-            <div className="flex gap-4">
-              <div className="text-[#b8905b] flex-shrink-0 mt-1">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-sm font-bold mb-2">Komplexní servis</h3>
-                <p className="text-slate-400 text-sm">Vše, co potřebujete, vyřešíte pohodlně na jednom místě.</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
-    </div>
-  );
+
+      <section className="mx-auto max-w-6xl px-5 pb-[clamp(64px,9vw,96px)] pt-6">
+        {reference.length > 0 ? (
+          <ReferenceList items={reference} />
+        ) : (
+          // Zobrazí se, dokud v data/reference.ts nejsou žádné reference
+          <div className="fade-up mx-auto flex max-w-xl flex-col items-center gap-5 rounded-sm border border-line bg-white p-10 text-center">
+            <p className="text-[17px] leading-relaxed text-slate-600">
+              Reference klientů zde brzy zveřejním. Mezitím se mě nebojte zeptat na zkušenosti přímo na schůzce.
+            </p>
+            <ButtonLink href="/kontakt#formular">Domluvit schůzku</ButtonLink>
+          </div>
+        )}
+      </section>
+
+      {reference.length > 0 && (
+        <CtaBanner title="Staňte se další spokojenou referencí" text="První konzultace je nezávazná." button="Domluvit schůzku" />
+      )}
+    </>
+  )
 }
